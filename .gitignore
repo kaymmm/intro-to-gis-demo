@@ -1,0 +1,50 @@
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*~
+*.rej
+*.swn
+*.swo
+*.swp
+
+
+# OS or Editor folders
+._*
+.AppleDouble
+.DS_Store
+.localized
+.LSOverride
+.Spotlight-V100
+.Trashes
+.cache
+Icon?
+Desktop.ini
+ehthumbs.db
+Thumbs.db
+
+
+# Folders to ignore
+.hg
+.svn
+
+# Node.js package manager
+*/node_modules
+*/npm-debug.log
+
+# Bower components
+*/bower_components
+
+# Other stuff
+*.pyc
+/tmp
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+*.sublime-projectcompletions
+
+# hide the AWS and Rsync credentials file
+aws-credentials.json
+rsync-credentials.json
