@@ -107,7 +107,9 @@ The shape of the aggregation unit (i.e., where boundaries are drawn) affects whi
 
 # Dasymetric Mapping
 
-Consider the [problem posed above](#polygon-to-polygon), of aggregating polygons-to-polygons. How might you consider heterogeneous data within an aggregation unit?
+>Consider the [problem posed above](#polygon-to-polygon), of aggregating polygons-to-polygons. How might you consider heterogeneous data within an aggregation unit?
+
+One method for interpolating/disaggregating data within an aggregation unit is through a technique called dasymetric mapping. The key difference between dasymetric maps and choropleth maps 
 
 ## Other Considerations
 
