@@ -6,7 +6,7 @@ In this lab, you will aggregate point data based on polygons from another data l
 
 ## Data
 
-Data for this lab can be downloaded from this Github repository by cloning the entire repository or by downloading the [compressed data file](https://github.com/kaymmm/intro-to-gis-demo/blob/master/TRI.zip?raw=true).
+Data for this lab can be downloaded from this Github repository by cloning the entire repository or by downloading the [compressed data file](https://github.com/kaymmm/intro-to-gis-demo/blob/master/data/TRI.zip?raw=true).
 
 Data Descriptions:
 

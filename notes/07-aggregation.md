@@ -11,55 +11,83 @@ This teaching demonstration explores the Geographic Information Science techniqu
 
 # Introduction
 
+**Key questions to consider**
 - What is a unit of aggregation?
 - What is their purpose in a GIS system?
 - What are some potential problems that we need to consider when aggregating data?
 
-In GIS systems, it is often necessary to summarize data over an area, called a unit of aggregation. The selection of an aggregation unit depends on myriad factors, such as what the data represent, how the data were collected, what types of analyses will be performed, what types of inferences will be made from the analyses, preexisting aggregation units (e.g., congressional districts), underlying patterns in the data, and data density.
+>Example: You are trying to characterize the degree and extent of a natural gas leak from a hypothetical underground storage facility in Porter Ranch. Using a portable handheld measurement device like a flame ionization detector, you and your team collect several hundred ambient air samples near and far from the source of the leak. You map the data points using GIS, but are overwhelmed by all the data points. What do you do?
 
-How (over what geographical extents) and why might we aggregate the following types of data?
-1. Votes for a political candidate
-2. Incarceration rates
-3. Precipitation rates
-4. Soil and groundwater contamination
-5. Endangered species habitat
+In GIS systems, it is often necessary to summarize data over an area so that you can summarize the data, perform statistical analyses, and compare the data with other datasets. With sensitive datasets like those involving health or human populations, summarizing data is often an important step in ensuring the privacy of participants. One of the most common techniques for accomplishing this is spatial aggregation.
+
+**Definition:** Spatial data aggregation is the process of combining data across one or more datasets using spatial information and/or other variables to group or classify the data. It is also used to transform data from a finer to coarser scale.
+
+>Example: You might want to group your FID data by distance from the leak’s origin by establishing aggregation units as concentric “donuts” (annuli), characterized by statistical summaries of the points contained within each donut. Another approach might be to group data by similar values. Yet another approach might be to establish a uniform grid overlaying the entire study area. If you are combining this data with, say, Census data to see how populations are affected, you might aggregate data points by Census tracts.
+
+The selection of an aggregation unit depends on myriad factors, such as what the data represent, how the data were collected, what types of analyses will be performed, what types of inferences will be made from the analyses, preexisting aggregation units (e.g., congressional districts), underlying patterns in the data, and data density.
+
+How (over what geographical extents) and why (versus using discrete data points) might we aggregate the following types of data?
+  1. Votes for a political candidate
+  2. Incarceration rates
+  3. Precipitation rates
+  4. Soil and groundwater contamination
+  5. Endangered species habitat
 
 # Spatial Aggregation Methods
 
-For each method, think about how you might implement that method in GIS in terms of layers, joins, intersections, etc.
+For each method, think about how you might implement that method in GIS in terms of layers, joins, intersections, etc., as well as why you might want to perform such an operation.
 
 ## Point-to-Polygon
 
-Probably the most common form of spatial aggregation. Individual data points are grouped into polygons based on proximity or their spatial coincidence with existing polygons. An example is households within a census block; another is soil samples within a uniform grid or within different hydrologic zones. What might be some considerations when creating new polygons that enclose different groups of points?
+Probably the most common form of spatial aggregation. Individual data points are grouped into polygons based on proximity or their spatial coincidence with existing polygons. An example is households within a census block; another is soil samples within a uniform grid or within different hydrologic zones.
+
+>What might be some considerations when creating new polygons that enclose different groups of points?
 
 ## Point-to-Point
 
-Individual data points that meet specific criteria are aggregated or assigned to another point. An example might be bees observed within a field that are assigned to a given hive based on their colony; another might be stop-and-frisk incidents and police departments. Does it matter if points from one group intersect points from another group?
+Individual data points that meet specific criteria are aggregated or assigned to another point. An example might be bees observed within a field that are assigned to a given hive based on their colony; another might be stop-and-frisk incidents and police departments.
+
+>Does it matter if points from one group intersect points from another group?
 
 ## Polygon-to-Polygon
 
-Multiple polygons are aggregated within a different set of polygons, or multiple polygons are merged based on shared characteristics. An example is aggregating census tracts within school districts; another is merging parcels based on land use. How do you deal with tracts that are split between multiple districts?
+Multiple polygons are aggregated within a different set of polygons, or multiple polygons are merged based on shared characteristics. An example is aggregating census tracts within school districts; another is merging parcels based on land use.
+
+>How do you deal with tracts that are split between multiple districts?
 
 ## Polygon-to-Point
 
-Multiple polygons that meet specific, usually spatial, criteria are aggregated or assigned to individual points. In reality, these are actually more like polygon-to-polygon aggregations, however it might be conceptually useful to think of them as points. An example is block groups located within a specific radius (buffer zones) from point emission sources; another example is using thiessen polygons to divide an area into non-overlapping polygons that each correspond to a single point. How do you deal with polygons that are not entirely within a buffer zone? Can you think of a way to disaggregate or divide the polygon into the portion within the buffer and the portion outside the buffer?
+Multiple polygons that meet specific, usually spatial, criteria are aggregated or assigned to individual points. In reality, these are actually more like polygon-to-polygon aggregations, however it might be conceptually useful to think of them as points. An example is block groups located within a specific radius (buffer zones) from point emission sources; another example is using thiessen polygons to divide an area into non-overlapping polygons that each correspond to a single point. How do you deal with polygons that are not entirely within a buffer zone?
 
-## Pixel-to-Cell
-
-The most common raster method, groups of pixels are generalized into a cell grid based on various criteria. The cell is assigned values based on statistical functions such as weighted averages, median, majority, binary (present-not present), or more complex functions.
+>Can you think of a way to disaggregate or divide the polygon into the portion within the buffer and the portion outside the buffer?
 
 ## Raster-to-Vector
 
 Pixels are converted, through aggregation, to points or polygons based on a wide range of algorithms that consider things such as cell size, smoothing (vs. "staircase"), contiguity, weighting, etc. Conversion also depends on the nature of the underlying raster data--is it continuous like temperature or elevation, or discrete like land cover?
 
-## Other Raster Methods
+## Resampling (Pixel-to-Cell)
 
-- When **reprojecting** raster datasets, cell geometries will change and new values will be calculated across the raster based on the specified algorithm. How will cells change across the map extents?
-- When **resampling** a raster to another resolution that isn't evenly divisible, all pixels will be recalculated based on algorithms involving neighboring pixels (same types of algorithms used in reprojecting).
+A very common raster method, often used to reduce computational load (make it faster to process data), groups of pixels are generalized into a uniform cell grid. Each cell is assigned a new value based on statistical and neighbor functions such as weighted averages, median, majority, binary (present-not present), nearest neighbor, or interpolation.
 
-# The Modifiable Areal Unit Problem (MAUP)
+>When performing analyses across multiple raster datasets with different native resolutions, do you think it makes more sense to upsample or downsample your data? Why?
 
-By modifying the areal boundaries or areal size of the unit of aggregation, the results of spatial analysis will be altered. By using units of aggregation that remain consistent across datasets, time, space, political jurisdictions, etc., the inferences derived from analysis are more repeatable, expandable, and portable.
+## Reprojection (Pixel-to-Pixel)
+
+When converting raster data between different map projections, the geometry of each cell necessarily changes. New cells are calculated based on various algorithms involving underlying pixels in a similar fashion to resampling.
+
+>How will cells change across the extents of a map?
+
+# Problems Encountered During Spatial Aggregation
+
+There are numerous challenges associated with spatial aggregation, both in terms of the process of aggregating, as well as in analysis subsequent analyses that use aggregated data.
+
+The first questions you need to ask yourself when aggregating data are how will the unit of aggregation (cell, polygon, etc.) relate to the underlying data, how large should my aggregation units be, and how will I determine where to draw boundaries between data points. The latter two questions relate to the Modifiable Areal Unit Problem, discussed in the next section. 
+
+There are additional issues related to spatial aggregation, some of which are listed in the table at the end of these notes.
+
+# Gerrymandering and the Modifiable Areal Unit Problem (MAUP)
+
+**Definition**: By modifying the areal boundaries or areal size of the unit of aggregation, the results of spatial analysis will be altered. By using units of aggregation that remain consistent across datasets, time, space, political jurisdictions, etc., the inferences derived from analysis are more repeatable, expandable, and portable. The problem is figuring out how to define boundaries that meet these various criteria and are appropriate to our data.
 
 There are two manifestations of the MAUP: issues of scale (size of aggregation units) and issues of zoning (where boundaries are drawn).
 
@@ -99,10 +127,13 @@ The shape of the aggregation unit (i.e., where boundaries are drawn) affects whi
 - In raster data, the pixel boundaries are completely arbitrary, so two aerial images taken sequentially of the exact same location might produce different analyses because the pixels are shifted ever so slightly, or the images might contain different graininess.
 - With raster data, there is often a need to classify non-homogeneous pixels or cells. When calculating land cover, how do you classify a cell that contains both water and land (e.g., a shoreline)?
 
+## Gerrymandering
 
-### Examples
+**Definition:** [Gerrymandering](https://en.wikipedia.org/wiki/Gerrymandering#Effect) occurs when politicians draw political boundaries in a way that will likely shape the outcome of elections and keep them or their party in power. It often results in oddly shaped electoral districts with odd protrusions, snake-like shapes, or narrow strips connecting different neighborhoods. The opposite of gerrymandering would be relatively uniform and compact districts. It’s best observed through example:
 
-- [Gerrymandering](https://en.wikipedia.org/wiki/Gerrymandering#Effect)
+![How to steal an election with gerrymandering](images/How_to_Steal_an_Election_-_Gerrymandering.svg)
+
+How does gerrymandering relate to the MAUP? Individual voters are discrete data points, and electoral districts are aggregation units. Election outcomes are a statistical summary of the voters within each district. Redistricting is literally the process of modifying areal units.
 
 
 # Dasymetric Mapping
