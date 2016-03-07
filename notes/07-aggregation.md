@@ -120,8 +120,6 @@ In census data, some of the more common aggregation units include (in increasing
 
 ## MAUP: Zoning
 
-<a href="https://en.wikipedia.org/wiki/Gerrymandering#/media/File:How_to_Steal_an_Election_-_Gerrymandering.svg"><img src="images/How_to_Steal_an_Election_-_Gerrymandering.svg.png" alt="How to steal an election. CC BY-SA 4.0 Steven Nass" height="300px"></a>
-
 The shape of the aggregation unit (i.e., where boundaries are drawn) affects which data points get included in each unit.
 - Boundaries can be based on any arbitrary geographical feature, such as borders, physical features, cartographic grids, or even pixels in an image.
 - In raster data, the pixel boundaries are completely arbitrary, so two aerial images taken sequentially of the exact same location might produce different analyses because the pixels are shifted ever so slightly, or the images might contain different graininess.
@@ -131,25 +129,27 @@ The shape of the aggregation unit (i.e., where boundaries are drawn) affects whi
 
 **Definition:** [Gerrymandering](https://en.wikipedia.org/wiki/Gerrymandering#Effect) occurs when politicians draw political boundaries in a way that will likely shape the outcome of elections and keep them or their party in power. It often results in oddly shaped electoral districts with odd protrusions, snake-like shapes, or narrow strips connecting different neighborhoods. The opposite of gerrymandering would be relatively uniform and compact districts. It’s best observed through example:
 
-![How to steal an election with gerrymandering](images/How_to_Steal_an_Election_-_Gerrymandering.svg)
+<a href="https://en.wikipedia.org/wiki/Gerrymandering#/media/File:How_to_Steal_an_Election_-_Gerrymandering.svg"><img src="images/How_to_Steal_an_Election_-_Gerrymandering.png" alt="How to steal an election. CC BY-SA 4.0 Steven Nass" height="300px"></a>
 
 How does gerrymandering relate to the MAUP? Individual voters are discrete data points, and electoral districts are aggregation units. Election outcomes are a statistical summary of the voters within each district. Redistricting is literally the process of modifying areal units.
 
+### How to Gerrymander like a pro using GIS
 
-# Dasymetric Mapping
+Although it’s impossible to predict election outcomes with any certainty, there are certainly ways to use spatial aggregation to influence election (or research) outcomes. While there are complex clustering algorithms that can mathematically optimize this problem, it’s easier, and quite effective, to just tweak the electoral boundaries manually.
 
->Consider the [problem posed above](#polygon-to-polygon), of aggregating polygons-to-polygons. How might you consider heterogeneous data within an aggregation unit?
+One possible gerrymandering workflow might look like this:
+  1. Create a choropleth map of existing electoral districts
+  2. Use an expert system to categorize Census blocks or block groups in terms of their likelihood to vote a particular way. The expert system might utilize demographic information such as income, race, household size, employment industries, etc., or it might utilize privately obtained survey data
+  3. Aggregate the voting data within electoral districts
+  4. Symbolize your choropleth map based on likelihood of votes going the way you want. You can check your map against past election results to see how well your expert system is working.
+  5. Identify electoral districts that look like they’re headed the wrong direction and start tweaking those district boundaries! [Here](http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html#/Reshaping_a_polygon/001t00000087000000/) is some guidance on tweaking polygon geometries using ArcGIS.
 
-One method for interpolating/disaggregating data within an aggregation unit is through a technique called dasymetric mapping. The key difference between dasymetric maps and choropleth maps 
+# Blog Prompt
+While gerrymandering is antithetical to liberal democracy, this silly example of data aggregation praxis has important implications across a spectrum of GIS applications. Discuss how the logics of gerrymandering, or data aggregation in general, might apply to your end-of-semester GIS project. What specific factors will influence how you aggregate your data? Review the problems associated with data aggregation and explain how your methodology will account for any of those that apply to your project. If you don’t think you will need any data aggregation in your project, use the example provided at the beginning of this lesson to complete this assignment.
 
-## Other Considerations
+---
 
-- Spatial autocorrelation: (Tobler's first law of geography, "everything is related to everything else, but nearby objects are more related than distant objects") do measurements taken in close proximity tend to have similar values? How will these underlying patterns affect the ways in which zones are established? Will these patterns appear in our analysis? Do we want them to or would we prefer they be smoothed over?
-- Ecological fallacy: assuming that zonal characteristics are characteristics of individuals within that zone or are true throughout the entirety of the zone. How might spatial autocorrelation exacerbate the ecological fallacy?
-- Pseudoreplication: repeat sampling from non-independent points can lead to stronger but potentially inaccurate statistical inferences. Example: testing ambient air samples for VOC concentrations in the vicinity of a waste facility, it is important not to oversample inside office buildings that might have elevated concentrations of VOCs from new furniture; instead, samples should be randomly distributed both indoors and outdoors across the entire area of concern, and care should be taken when establishing aggregation zones.
-- Cross-scale correlation: presence of variables measured at one scale might lead to erroneous conclusions about variables at other scales. Example: presence of large older trees might be a good predictor for a particular bird species at a fine scale, but broader-scale variables like average tree age/size across a forest might mask the bird-tree relationship.
-
-## Problems Associated with Data Aggregation
+# Problems Associated with Data Aggregation
 
 | Problem encountered           | What it is                                                                                                                                                                                                                                               | References for more information                                                                      |
 |-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|

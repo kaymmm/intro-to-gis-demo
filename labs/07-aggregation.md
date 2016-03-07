@@ -6,9 +6,11 @@ In this lab, you will aggregate point data based on polygons from another data l
 
 ## Data
 
+### Download
+
 Data for this lab can be downloaded from this Github repository by cloning the entire repository or by downloading the [compressed data file](https://github.com/kaymmm/intro-to-gis-demo/blob/master/data/TRI.zip?raw=true).
 
-Data Descriptions:
+### Data Descriptions
 
 | Filename | Description | Source |
 |----------|-------------|--------|
@@ -25,15 +27,15 @@ Data Descriptions:
 
   a. Start ArcGIS and create a new blank map:
 
-      ![Start ArcGIS and create a new blank map](images/lab01-start.png)
+  ![Start ArcGIS and create a new blank map](images/lab01-start.png)
 
-  b. Load Census Tracts and TRI Facility data. Click on the "Add Data" button:
+  b. Load Census Tracts and TRI Facility data. Click on the `Add Data` button:
 
-      ![Click on the "Add Data" button](images/lab02-add_data.png)
+  ![Click on the Add Data button](images/lab02-add_data.png)
 
-      Navigate to the folder where you unzipped the downloaded data and then hold the `control` key while clicking on the `2010_Census-Tracts.shp` and `LAC-TRI.shp` files:
+  Navigate to the folder where you unzipped the downloaded data and then hold the `control` key while clicking on the `2010_Census-Tracts.shp` and `LAC-TRI.shp` files:
 
-      ![Select the Census Tracts and LAC-TRI shapefiles](images/lab03-select_data.png)
+  ![Select the Census Tracts and LAC-TRI shapefiles](images/lab03-select_data.png)
 
   c. Take a moment to open the attribute table (right click on the layer name and select `Open Attribute Table`) for each of the layers you just loaded and explore the data columns. Refer back to the metadata for these two datasets for more information about what each column represents (the metadata names are listed in the table above). Try to gain a basic understanding of what underlying phenomena the two datasets represent.
 
@@ -93,11 +95,7 @@ Data Descriptions:
 
   ![Use the Field Calculator on your new field](images/lab13-field_calc.png) 
 
-  In the field calculator, enter a formula to divide the `Count_` field by the `Area_km2` field (your field names may differ):
-
-    ```VB 
-    [Count_]/[Area_km2]
-    ```
+  In the field calculator, enter a formula to divide the `Count_` field by the `Area_km2` field (your field names may differ): `[Count_] / [Area_km2]`
 
   ![Enter a formula to calculate TRI density](images/lab14-formula.png)
 
