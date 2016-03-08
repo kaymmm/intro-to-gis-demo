@@ -1,8 +1,8 @@
 # Introduction to GIS
 
-**Instructor**: Keith Miyake
-keith.miyake@gmail.com
-**Website**: http://github.com/kaymmm/intro-gis
+- **Instructor**: Keith Miyake
+- keith.miyake@gmail.com
+- **Website**: http://github.com/kaymmm/intro-gis
 
 ## Introduction
 

@@ -2,9 +2,9 @@
 
 This repository contains lesson overviews/notes and lab asignments for GIS 101. 
 
-**Instructor**: Keith Miyake
-[**Course website**](http://keithmiyake.info/gis101)
-[**Course Syllabus**](syllabus.md)
+- **Instructor**: Keith Miyake
+- [**Course website**](http://github.com/kaymmm/intro-to-gis)
+- [**Course Syllabus**](syllabus.md)
 
 ## Schedule
 
