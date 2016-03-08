@@ -31,11 +31,11 @@ This repository contains lesson overviews/notes and lab asignments for GIS 101.
 
   1. Install git on your computer. If you are comfortable with the command line, I suggest using the command-line interface instead of the GUI Github client.
   2. Fork this repository
-    a. [Set up an account on Github.]()
-    a. [Fork this repository]()
-    a. [Clone your new repository to your computer.]()
-  3. [Here]() is one of the myriad tutorials on using git and Github.
+    a. [Set up an account on Github.](https://github.com/join?source=header-home)
+    b. [Fork this repository](https://github.com/kaymmm/intro-to-gis-demo#fork-destination-box) ([instructions on forking](https://help.github.com/articles/fork-a-repo/))
+    c. [Clone your new repository to your computer.](https://help.github.com/articles/cloning-a-repository/)
+  3. [Here](https://help.github.com/articles/good-resources-for-learning-git-and-github/) is a list of resources to help you get started using git and Github.
 
 # LICENSE
 
-These course materials are licensed under the GNU Public License version 3.0. 
+These course materials are licensed under the GNU Public License version 2.0. 
