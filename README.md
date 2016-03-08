@@ -25,7 +25,7 @@ This repository contains lesson overviews/notes and lab asignments for GIS 101.
 
 ## How to Use This Repository
 
-**Basic Instructions:** If you want to copy all of the materials to your computer, you can [download a single .zip file](https://) containing all of the files.
+**Basic Instructions:** If you want to copy all of the materials to your computer, you can [download a single .zip file](https://github.com/kaymmm/intro-to-gis-demo/archive/master.zip) containing all of the files.
 
 **Recommended Instructions:** If you would like to keep your local files in sync with this repository, and potentially contribute fixes, you will need to use a `git` client to interact with this repository.
 
