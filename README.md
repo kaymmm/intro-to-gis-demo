@@ -16,7 +16,7 @@ This repository contains lesson overviews/notes and lab asignments for GIS 101.
 | Week 4 | Environmental Data | Lab 4 | |
 | Week 5 | Raster Data | Lab 5 | |
 | Week 6 | Basic GIS Operations| Lab 6 | |
-| Week 7 | [Spatial Aggregation](notes/07-aggregation.md) | [Lab 7](labs/07-aggregation.md) | [TRI data](data/TRI.zip) |
+| Week 7 | [Spatial Aggregation](notes/07-aggregation.md) [(slides)](notes/07-aggregation.pdf) | [Lab 7](labs/07-aggregation.md) | [TRI data](data/TRI.zip) |
 | Week 8 | Spatial Analysis | Lab 8 | |
 | Week 9 | Interpolation and Spatial Statistics | Lab 9 | |
 | Week 10 | Participatory and Critical GIS | Lab 10 | |
