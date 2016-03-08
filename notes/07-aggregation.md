@@ -16,7 +16,8 @@ This teaching demonstration explores the Geographic Information Science techniqu
 - What is their purpose in a GIS system?
 - What are some potential problems that we need to consider when aggregating data?
 
->Example: You are trying to characterize the degree and extent of a natural gas leak from a hypothetical underground storage facility in Porter Ranch. Using a portable handheld measurement device like a flame ionization detector, you and your team collect several hundred ambient air samples near and far from the source of the leak. You map the data points using GIS, but are overwhelmed by all the data points. What do you do?
+>Example: You are trying to characterize the degree and extent of a natural gas leak from a hypothetical underground storage facility in Porter Ranch. Using a portable handheld measurement device (e.g., flame ionization detector), you and your team collect several hundred ambient air samples (with locational information) near and far from the source of the leak.
+>Take 5 minutes to brainstorm ideas for how you would try to analyze these data. What types of information might be useful? Are there ways of organizing the data to make the data easier to work with?
 
 In GIS systems, it is often necessary to summarize data over an area so that you can summarize the data, perform statistical analyses, and compare the data with other datasets. With sensitive datasets like those involving health or human populations, summarizing data is often an important step in ensuring the privacy of participants. One of the most common techniques for accomplishing this is spatial aggregation.
 
@@ -26,36 +27,29 @@ In GIS systems, it is often necessary to summarize data over an area so that you
 
 The selection of an aggregation unit depends on myriad factors, such as what the data represent, how the data were collected, what types of analyses will be performed, what types of inferences will be made from the analyses, preexisting aggregation units (e.g., congressional districts), underlying patterns in the data, and data density.
 
-How (over what geographical extents) and why (versus using discrete data points) might we aggregate the following types of data?
-  1. Votes for a political candidate
-  2. Incarceration rates
-  3. Precipitation rates
-  4. Soil and groundwater contamination
-  5. Endangered species habitat
-
 # Spatial Aggregation Methods
 
 For each method, think about how you might implement that method in GIS in terms of layers, joins, intersections, etc., as well as why you might want to perform such an operation.
 
-## Point-to-Polygon
-
-Probably the most common form of spatial aggregation. Individual data points are grouped into polygons based on proximity or their spatial coincidence with existing polygons. An example is households within a census block; another is soil samples within a uniform grid or within different hydrologic zones.
-
->What might be some considerations when creating new polygons that enclose different groups of points?
-
-## Point-to-Point
+## Point-to-Point (simple categorical join)
 
 Individual data points that meet specific criteria are aggregated or assigned to another point. An example might be bees observed within a field that are assigned to a given hive based on their colony; another might be stop-and-frisk incidents and police departments.
 
 >Does it matter if points from one group intersect points from another group?
 
-## Polygon-to-Polygon
+## Point-to-Polygon (simple spatial join)
+
+Probably the most common form of spatial aggregation. Individual data points are grouped into polygons based on proximity or their spatial coincidence with existing polygons. An example is households within a census block; another is soil samples within a uniform grid or within different hydrologic zones.
+
+>What might be some considerations when creating new polygons that enclose different groups of points?
+
+## Polygon-to-Polygon (spatial join or merge)
 
 Multiple polygons are aggregated within a different set of polygons, or multiple polygons are merged based on shared characteristics. An example is aggregating census tracts within school districts; another is merging parcels based on land use.
 
 >How do you deal with tracts that are split between multiple districts?
 
-## Polygon-to-Point
+## Polygon-to-Point (spatial join with distance or buffers)
 
 Multiple polygons that meet specific, usually spatial, criteria are aggregated or assigned to individual points. In reality, these are actually more like polygon-to-polygon aggregations, however it might be conceptually useful to think of them as points. An example is block groups located within a specific radius (buffer zones) from point emission sources; another example is using thiessen polygons to divide an area into non-overlapping polygons that each correspond to a single point. How do you deal with polygons that are not entirely within a buffer zone?
 
@@ -76,6 +70,15 @@ A very common raster method, often used to reduce computational load (make it fa
 When converting raster data between different map projections, the geometry of each cell necessarily changes. New cells are calculated based on various algorithms involving underlying pixels in a similar fashion to resampling.
 
 >How will cells change across the extents of a map?
+
+# Thinking Spatially about Data
+
+How (over what geographical extents) and why (versus using discrete data points) might we aggregate the following types of data?
+  1. Votes for a political candidate
+  2. Incarceration rates
+  3. Precipitation rates
+  4. Soil and groundwater contamination
+  5. Endangered species habitat
 
 # Problems Encountered During Spatial Aggregation
 
