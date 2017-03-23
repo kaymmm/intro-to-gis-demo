@@ -30,12 +30,31 @@ The majority of labs will use ESRI’s ArcGIS ecosystem, however we will also ma
 - What is GIS, and Tool vs. Science debates
 - Cartographic theory and data types
 - Map typology and visual design theory
-- Environmental spatial data and databases
-- Statistical mapping
+- Vector-based environmental spatial data and databases
+- Working with environmental raster data
 - Basic operations
   - Selection and measurement
   - Overlay and intersection analysis
   - Proximity analysis
+- Spatial aggregation
+- Statistical mapping
 - Spatial analysis and creating GIS models
 - Interpolation and spatial statistics
 - Participatory and Critical GIS
+
+## Schedule and Links to Data/Notes
+
+| Week | Topic (Notes) | Lab | Data |
+|------|---------------|-----|------|
+| Week 1 | What is GIS | Lab 1 | |
+| Week 2 | Cartographic Theory | Lab 2 | |
+| Week 3 | Map typology and Design Theory | Lab 3 | |
+| Week 4 | Environmental Data | Lab 4 | |
+| Week 5 | Raster Data | Lab 5 | |
+| Week 6 | Basic GIS Operations| Lab 6 | |
+| Week 7 | [Spatial Aggregation](notes/07-aggregation.md) ([slides](notes/07-aggregation.pdf)) | [Lab 7](labs/07-aggregation.md) | [TRI data](data/TRI.zip) |
+| Week 8 | Spatial Analysis | Lab 8 | |
+| Week 9 | Interpolation and Spatial Statistics | Lab 9 | |
+| Week 10 | Participatory and Critical GIS | Lab 10 | |
+| Week 11 | Presentations | Lab 11 | |
+| Week 12 | Presentations | Lab 12 | |
